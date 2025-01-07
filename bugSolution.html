@@ -1,0 +1,18 @@
+The issue was resolved by explicitly specifying the files Tailwind should process in its configuration file.  This ensures that all necessary CSS classes are included in the final CSS output, fixing the intermittent application failures.
+
+Here's an example of the updated `tailwind.config.js` file:
+
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [ 
+    "../bug.html"
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+By including the specific HTML file (`bug.html`) within the `content` array, Tailwind now correctly processes all the necessary CSS classes, resolving the inconsistencies.
